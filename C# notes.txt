@@ -1,3 +1,317 @@
+
+Collections:-
+Dynamic Array
+int[] Arr = new int[10];
+Array.Resize(ref arr, 15);
+
+Array Autoresize()
+
+Non-generic collections:-
+stack,queue,linkedlist,sortedlist,Arraylist,Hashtable
+
+.net implemented and given in the from of classes
+collections(non generic collections)
+
+Array vs Arraylist
+
+Fixedlength     variable length
+Not possible to   we can insert items into mddle
+insert the items  size dynamically increases
+
+
+using system.collections
+Arraylist a = new ArrayList();
+
+console.WriteLine(a.capacity); //0 
+a.Add(100);
+console.WriteLine(a.capacity); //4
+at a time the capacity increases or doubles
+a.Add(200);a.Add(300);a.Add(400);
+a.Add(500);
+console.WriteLine(a.capacity); //8
+foreach(object obj in al){
+   Console.Write(obj+"");
+}
+
+we can pass intial parameter 
+ArrayList a = new ArrrayList(10);
+
+a.Insert(3,350); // index // value
+a.remove(200); //value
+a.removeAt(2); //index
+collections part-2
+Array vs collection
+fixed    Is Dynamic
+using system.collections
+
+Array and Arraylist (index at '0') key/Value Combination
+Hashtable :- key/value Combination 
+1010
+"Scott"
+"Manager"
+25000.0
+1002
+23746666
+scott@gmail.com
+"sales"
+"Mumbai"
+
+
+Arraylist, Hashtable, Stack, Queue ,linkedlist are non-generic collection
+Hashtable ht = new Hashtable();
+ht.Add("Eid",1010);
+ht.Add("Ename","Scott");
+ht.Add("Job","Manager");
+ht.Add("Salary",25000);
+ht.Add("Mgrid",1002);
+ht.Add("Phone","23746666");
+foreach(object key in ht.Keys)
+{
+    Console.Writeline(key);
+    Console.WriteLine(Key +":"+ht[Key]);
+}
+//hashing algorithm stores the value
+Console.Writeline("Eid".GetHashCode());
+
+collections are not typesafe
+In a Array all elements are of same type
+Array is type safe
+collection:- Auto Resizing but not Type safe(are non generic)
+
+Generic Collections:
+Type safe and Auto Resizing
+
+List<T> 
+List<int> li = new List<int>();
+list<string> li = new List<string>();
+
+using system.collection.generic --> specified type of values
+foreach(int i in li){
+  Console.WriteLine(i+" ");
+}
+
+
+Generics:-
+public bool compare(int a ,int b)
+{
+  if(a.Equals(b))
+{
+ return true;
+}
+return false;
+}
+
+public bool compare(int a ,int b)
+{
+  if(a.Equals(b))
+{
+ return true;
+}
+return false;
+}
+
+   var down = new Hashtable();
+            down.Add("dfgvn", 1324354);
+            down.Add("dfgweq", 45356);
+            foreach(object dert in down.Values)
+            {
+                Console.WriteLine(dert);
+            }
+
+            var li = new List<int>();
+=======
+public bool compare(object a ,object b)
+{
+  if(a.Equals(b))
+{
+ return true;
+}
+return false;
+}{problem float and double are also compared 
+and this may cause a error so generics are implemented}
+========
+boxing and unboxing
+generics -->
+ 
+public bool compare<T>(T a ,T b)
+{
+  if(a.Equals(b))
+{
+ return true;
+}
+return false;
+}
+var raj = compare<float>(a,b);
+this solves the issue
+in the place of T class can also be called
+
+var allocates the datatype in compile time
+and dynamic allocates the data type in run time
+
+using System;
+using System.Collections;
+using System.Linq;
+
+class Generics<T> { 
+
+
+public T add (T a, T b)
+    {
+        dynamic d = a;
+        dynamic e= b;
+        return d+e;
+    }
+
+    public T sub(T a, T b)
+    {
+        dynamic d = a;
+        dynamic e = b;
+        return d-e;
+    }
+    public T mul(T a, T b)
+    {
+        dynamic d = a;
+        dynamic e = b;
+        return d * e;
+      
+    }
+
+    public T div(T a, T b)
+    {
+        dynamic d = a;
+        dynamic e = b;
+        return d / e;
+    }
+
+    public static void main()
+    {
+        var gent = new Generics<int>();
+        gent.add(1, 2);
+        gent.sub(3, 4);
+        gent.sub(2, 4);
+        gent.div(5, 2);
+    }
+}
+
+
+==========================================================================================
+generic collection:-
+with fixed datatype and size is expandable
+Hashtable<key, value>
+Dictionary<TKey,TValue>
+
+ Dictionary<string, object> ht = new Dictionary<string, object>();
+            ht.Add("Eid", 1010);
+            ht.Add("Ename", "Scott");
+            ht.Add("Job", "Manager");
+            ht.Add("Salary", 25000);
+            ht.Add("Mgrid", 1002);
+            ht.Add("Phone", "23746666");
+            foreach (string dert in ht.Keys)
+            {
+                Console.WriteLine(dert + ":" + ht[dert]);
+                Console.WriteLine(dert);
+            }
+
+Dictinary<int,int> ht = new Dictionary<int,int>();
+
+In case of a generic collection the type of values we want to store
+under the collections need not only be predefined data types like int,
+float,double,char can be user-defined class or data type
+
+<Model>
+public class customer:IComparable<Customer>
+{
+   public int Customerid {get; set;}
+   public string Name {get; set;}
+   public string City {get; set;}
+   public string Pincode {get; set;}
+    
+   
+}
+List<Customer> Customers = new List<Customer>();
+
+var newuser = new customer(Customerid  = 1234,Name = "teja", 
+City = "vijayawada",pincode = "520007");
+
+Customers.Add(newuser);
+foreach(Customer obj in Customers){
+   Console.WriteLine(obj.Customerid+" "+obj.Name+"");
+}
+
+//total list intializer
+List<customer> customers = new List<customer>(){s1,s2,s3,s4,s5,s6};
+students.Sort();
+list get sorted if it is of single data type
+for value of components can never be compared
+
+IComparable<student>
+
+public class student:IComparable<Student>
+{
+ public int Sid{get; set;}
+ public string Name{get; set;}
+ public int class{get; set;}
+ public float marks{get; set;}
+ public int CompareTo(Student other)
+{
+  if(this.Sid> other.sid){
+     return 1;
+  }
+  else if(this.sid < other.sid){
+     return -1;
+}
+ else{
+    return 0;
+}
+}
+}
+
+student.sort();
+student.Reverse();
+
+class CompareStudents:IComparer<student>
+{
+  public comparer(Student x,student y){
+     if(x.Marks > y.Marks)
+     {
+         return 1;
+     }
+     else if(x.Marks > y.Marks) 
+    {
+         return -1;
+    }
+    else{
+        return 0;
+    }
+ }
+
+}
+
+
+to create compare for other properties
+CompareStudents obj = new CompareStudents();
+overrides of sort function of student class
+1)student.Sort();//used for simple type
+//used for complex data types with Icomparable inerface
+2)Student.Sort(1,3,obj); //from which index to which index the sort to happen
+3)Student.sort(obj);
+4)Delegate
+
+public static int CompareNames(student s1,student s2)
+{
+   return s1.Name.CompareTo(s2.Name);
+}
+
+Comparision<student> obj = new Comparision<student>(CompareNames);
+
+//A method cannot be passed as a parameter to the function
+a delegate helps us to pass function as a parameter 
+
+Student.sort(delegate as a parameter);
+
+
+
 Delegates, LINQ , Ienumerable, Implementing own collection
 
 Ienumerable
