@@ -1,0 +1,208 @@
+Delegates, LINQ , Ienumerable, Implementing own collection
+
+Ienumerable
+ -ICollection
+  -IList
+   -List
+
+All the collection should inheriet from the base implementation 
+Ienumerable
+
+And foreach depends upon getenumerator() which is implemented in Ienumerable interface
+
+And each own class is a collection, so if we build a own collection to use iterate over collection
+we have to implement of methods of IEnumerable in our own class
+
+Linq --> language integrated natural query engine
+
+Linq --> SQL
+LInq --> ADO.NET
+
+SQL(Tables)            LINQ(Objects)
+Table                  CLass
+Column                 Property
+Row                    Instance
+Stored Procedures      Methods
+No Type Safety         Type Safety
+Debugging not          Debugging not available
+avaiable     
+passed as a string     not passed as a string
+
+
+It is used to reduce the code and reduce sql computation on client side
+Arr[] for Array.size()
+brr[] for brr.size()
+
+======================================================================================
+int[] arr = {12,10,34,56,78,34,23,34, 78};
+int count = 0;
+for(int i=0;i<arr.length();i++)
+{
+    if(arr[i] > 12)
+    {
+       count += 1;
+    }
+}
+int[] brr = new int[count];
+int current = 0;
+for(int i=0;i<brr.length();i++)
+{
+   if(arr[i] > 12)
+   {
+     brr[current]= arr[i];
+     current = current+1;
+   }
+}
+brr.sort();
+brr.reverse();
+for(int i=0;i<brr.length();i++)
+{
+     Console.WriteLine(brr[i]+" ");
+}
+Console.ReadLine();
+====================================================================
+By using LINQ
+int[] arr = new Int[12,23,34,52,45,34,23,12];
+var brr = from i in arr where i > 40 order by I Descending Select I;
+foreach(var i in brr)
+{
+  Console.WriteLine(brr[i]+" ");
+}
+Console.ReadLine();
+==========================================================================
+
+
+
+Delegates  vs Indexers
+1)Indexers:-
+    Take a class example employees 
+public class employee{
+  public int empid{get; set;}
+  public string empname{get; set;}
+  public string empfaname{get; set;}
+  public string empaddress{get; set;}
+}
+if want to access the properties of a class with the (index value) rather than a property Value
+employee[0] --> should indicate empid by index access
+employee.empid --> it is called property access to return the value
+
+<access modifier> object this(int index)  //here this indicates the current object class it operates                                       //All Datatypes are accepted using object returntype
+{
+     get{
+          if(index == 0)
+          {
+              return empid;
+          }
+          else if(index == 1)
+          {
+              return empname;
+          }
+          else if(index == 2)
+          {
+             return empfaname;
+          }
+          else if(index == 3)
+          {
+              return empaddress;
+          }
+       }
+     set{
+           if(index == 0)
+          {
+           empid = value;
+          }
+          else if(index == 1)
+          {
+               empname = value;
+          }
+          else if(index == 2)
+          {
+             empfaname = value;
+          }
+          else if(index == 3)
+          {
+              empaddress = value;
+          }
+        }
+}
+=======================================================================================
+By Default all properties are private they cannot be inherited
+Delegates is a reference to a method and acts as a pointer to a method
+
+first point the delegate return type and parameters list should match with
+the function that we want to pass a parameter
+
+Important:-
+Class is a refernce type
+whereas struct is a value type
+Whereas Delegate is a reference type to a function which accepts function as a parameter
+namespace is the largest container 
+static methods cannot be instantited so used to call by a class name
+non-static methods can be called by created a instance of class
+
+
+Example
+public class Rama{
+   public delgate void addelegate(int x,int y);
+    
+   public void addtwonumbers(int a, int b)
+   {
+       Console.WriteLine(a+b);
+   }
+}
+Rama r = new Rama();
+addelegate ad = new addelegate(r.addtwonumbers);
+
+
+
+//Delegate behaves as class from object creation
+they behave in the same way as functions
+Async functions --> are anyonomus functions (non-serial delegates)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
